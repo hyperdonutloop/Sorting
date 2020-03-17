@@ -33,7 +33,7 @@ def bubble_sort( arr ):
                 arr[i], arr[i+1] = arr[i +1], arr[i]
                 swapped = True
         if swapped == False:
-                break
+            break
     return arr
 
 
