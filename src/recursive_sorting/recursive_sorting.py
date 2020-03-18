@@ -30,16 +30,44 @@ def merge( arrA, arrB ):
         k+=1
     return merged_arr
 
+    # class example for problem
+    a = 0
+    b = 0
+
+    for k in range(0, elements):
+        # compare a and b
+        # if a is out of range, push b and iterate
+        if a >= len(arrA): #we are done with a, push b
+            merged_arr[k] = arrB[b]
+            b+=1 #b++
+        # if b is out of range, push a and iterate
+        elif b >= len(arrB):
+            merged_arr[k] = arrA[a]
+            a+=1
+        # if a is smaller, put it in array and iterate both
+        elif arrA[a] < arrB[b]:
+            merged_arr[k] = arrA[a]
+            a+=1
+        # if b is smaller, put it in array and iterate both
+        else: 
+            merged_arr[k] = arrB[b]
+            b+=1
 
 
 
 # TO-DO: implement the Merge Sort function below USING RECURSION
 def merge_sort( arr ):
     # TO-DO
+    # base condition
+    # if array size is >=1
     if len(arr) > 1: 
+        # finding the middle of arr
         mid = len(arr) // 2
+        # sort stuff in left and put it in left
         left = merge_sort(arr[:mid])
+        # sort stuff in right and put in right
         right = merge_sort(arr[mid:])
+        # merge left and right
         arr = merge(left, right)
 
     return arr
