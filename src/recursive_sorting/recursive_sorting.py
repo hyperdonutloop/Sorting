@@ -3,44 +3,42 @@ def merge( arrA, arrB ):
     elements = len( arrA ) + len( arrB )
     merged_arr = [0] * elements
     # TO-DO
-    i, j, k = 0, 0, 0
-   # traverse both arrays
-    while i < len(arrA) and j < len(arrB):
-       # check if current element of first array 
-       # is smaller than current element of second array.
-       # if yes, store the first array of the element
-       # and increment first array index.
-       #Otherwise do the same with second array
-        if arrA[i] <= arrB[j]:
-           merged_arr[k] = arrA[i]
-           i+=1
-        else:
-            merged_arr[k] = arrB[j]
-            j+=1
-        k+=1
-        # store the remaining elements of first array
-    while i < len(arrA):
-        merged_arr[k] = arrA[i]
-        i+=1
-        k+=1
-        # store remaining elements of second array
-    while j < len(arrB):
-        merged_arr[k] = arrB[j]
-        j+=1
-        k+=1
-    return merged_arr
-
-    # class example for problem
+#     i, j, k = 0, 0, 0
+#    # while there are elements in both arrays
+#     while i < len(arrA) and j < len(arrB):
+#        # if current element of first array is smaller than current element of second array
+#        # another way to say this - while there are elements in both arrays, we need to check which index in the array is lower
+#         if arrA[i] <= arrB[j]:
+#             # then, store the first array of the element
+#            merged_arr[k] = arrA[i]
+#            # increment by 1
+#            i+=1
+#         else:
+#             # otherwise do the same with the second array
+#             merged_arr[k] = arrB[j]
+#             # increment by 1
+#             j+=1
+#         k+=1
+#         # store the remaining elements of first array
+#     while i < len(arrA):
+#         merged_arr[k] = arrA[i]
+#         i+=1
+#         k+=1
+#         # store remaining elements of second array
+#     while j < len(arrB):
+#         merged_arr[k] = arrB[j]
+#         j+=1
+#         k+=1
     a = 0
     b = 0
 
     for k in range(0, elements):
         # compare a and b
-        # if a is out of range, push b and iterate
-        if a >= len(arrA): #we are done with a, push b
+        # if a is out of range (EMPTY), push b and iterate
+        if a >= len(arrA): #we are done with a, push b into the new array(k)
             merged_arr[k] = arrB[b]
             b+=1 #b++
-        # if b is out of range, push a and iterate
+        # if b is out of range(EMPTY), push a and iterate
         elif b >= len(arrB):
             merged_arr[k] = arrA[a]
             a+=1
@@ -52,6 +50,8 @@ def merge( arrA, arrB ):
         else: 
             merged_arr[k] = arrB[b]
             b+=1
+    return merged_arr
+
 
 
 
